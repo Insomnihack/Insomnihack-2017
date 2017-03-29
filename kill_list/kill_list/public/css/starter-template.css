@@ -1,0 +1,64 @@
+body {
+    /*padding-top: 50px;*/
+/*    background: url(../img/highquality-walls.blogspot.com-12.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('../img/highquality-walls.blogspot.com-12.jpg');
+    background-repeat:repeat;
+}
+
+.white_text {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+
+.lead {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+
+.centered_message{
+    width: 66%;
+    margin: 100px auto 0 auto;
+}
+
+.centered_warnings{
+    width: 25%;
+    margin: 70px auto 0 auto;
+}
+
+.human_search_button{
+    display: inline-block;
+    width: 10%;
+    height: 40px;
+}
+
+.human_search_field{
+    margin-top: 60px;
+    display: inline-block;
+    width: 40.5%;
+    height: 40px;
+}
+
+.humans thead th{
+    text-align: center;
+}

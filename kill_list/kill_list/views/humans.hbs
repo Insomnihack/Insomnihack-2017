@@ -1,0 +1,66 @@
+{{#if isLoggedin}}
+    {{# if success }}
+        <section class="alert alert-success centered_warnings" role="alert">
+            <strong>Successful Validation!</strong>
+        </section>
+    {{/if}}
+    {{# if errors }}
+        <section class="alert alert-danger centered_warnings" role="alert">
+            <ul>
+                {{# each errors }}
+                    <li><strong>{{ this.msg }}</strong></li>
+                {{/each}}
+            </ul>
+        </section>
+    {{/if}}
+    <div class="container white_text">
+        <div class="page-header center">
+        <form class="form-signin" method="post" action="/humans" enctype="application/json">
+            <input type="text" name="firstname" class="form-control human_search_field" placeholder="Search" autofocus="">
+            {{!-- <input type="text" name="lastname" class="form-control human_search_field" placeholder="Search by lastname" autofocus=""> --}}
+            <button class="btn btn-lg btn-primary btn-block human_search_button" type="submit">Search</button>
+        </form>
+            <div class="col-md-12 humans pre-scrollable" style="margin: 0 auto;">
+              <table class="table" style="height:100px;overflow:auto;">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Affiliations</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                {{# if humans.length }}
+                    {{# each humans}}
+                      <tr>
+                        <td>{{this._id}}</td>
+                        <td>{{this.firstname}}</td>
+                        <td>{{this.lastname}}</td>
+                        <td>{{this.username}}</td>
+                        <td>{{this.affiliations}}</td>
+                      </tr>
+                    {{/each}}
+                {{else}}
+                        <tr>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                      </tr>
+                {{/if}}
+                </tbody>
+
+              </table>
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="alert alert-danger centered_warnings" role="alert">
+        <strong>Welcome stranger</strong><br><br>
+        <strong>You'll need to login for that !</strong>
+    </div>
+{{/if}}

@@ -1,0 +1,15 @@
+{
+    "apps": [
+        {
+            "name": "kill_list",
+            "script": "./bin/www",
+            "merge_logs": true,
+            "max_restarts": 20,
+            "instances": 4,
+            "max_memory_restart": "1G",
+            "env": {
+                "PORT": 8080
+            }
+        }
+    ]
+}

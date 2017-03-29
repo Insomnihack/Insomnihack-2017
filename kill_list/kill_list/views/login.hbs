@@ -1,0 +1,37 @@
+<link href="/css/login.css" rel="stylesheet">
+<script src="/js/login.js"></script>
+
+{{#if isLoggedin}}
+    <div class="alert alert-warning centered_message" role="alert">
+        <strong>[ Welcome {{username}} ]</strong><br><br>
+        <strong>You are already loggedin!</strong><br>
+        <strong>Best check yo self, you're not looking too good.</strong><br>
+        <strong>No flag for you here !!!</strong>
+    </div>
+{{else}}
+
+    {{# if success }}
+        <section class="alert alert-success centered_warnings" role="alert">
+            <strong>Successful Validation!</strong>
+        </section>
+    {{/if}}
+    {{# if errors }}
+        <section class="alert alert-danger centered_warnings" role="alert">
+            <ul>
+                {{# each errors }}
+                    <li><strong>{{ this.msg }}</strong></li>
+                {{/each}}
+            </ul>
+        </section>
+    {{/if}}
+    <div class="container">
+        <form class="form-signin" method="post" action="/login">
+            <h1 class="form-signin-heading text-muted">Sign In</h1>
+            <input type="text" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Sign In
+            </button>
+        </form>
+    </div>
+{{/if}}

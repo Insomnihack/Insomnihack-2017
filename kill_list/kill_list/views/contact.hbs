@@ -1,0 +1,84 @@
+{{#if isLoggedin}}
+
+    <link href="/css/contact.css" rel="stylesheet">
+    <script src="/js/contact.js"></script>
+
+    {{# if success }}
+        <section class="alert alert-success centered_warnings" role="alert">
+            <strong>Successful Validation!</strong>
+        </section>
+    {{/if}}
+    {{# if errors }}
+        <section class="alert alert-danger centered_warnings" role="alert">
+            <ul>
+                {{# each errors }}
+                    <li><strong>{{ this.msg }}</strong></li>
+                {{/each}}
+            </ul>
+        </section>
+    {{/if}}
+
+    <div class="container">
+        </div>
+            <form action="/contact" class="contact-form" method="post">
+                <h1 class="form-signin-heading text-muted text-center">Contact Us</h1>
+                <div class="form-group">
+                <input type="text" name="username" id="username" class="username form-control" placeholder="Your Username" value="">
+                <i class="fa fa-user"></i>
+                <span class="asterix">*</span>
+                <span class="cross">x</span>
+                <span class="verify"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <div class="alert alert-danger custom-alert">
+                    user must be more than 3 letter
+                </div>
+                </div>
+
+                <div class="form-group">
+                <input type="text" name="email" class=" email form-control" placeholder="Your Email" value="">
+                <i class="fa fa-envelope"></i>
+                <span class="asterix">*</span>
+                <span class="cross">x</span>
+                <span class="verify"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <div class="alert alert-danger custom-alert">
+                    Email can not be empty
+                </div>
+                </div>
+                
+                <div class="form-group">
+                <input type="text" name="subject" class="subject form-control" placeholder="Your subject" value="">
+                <i class="fa fa-pencil"></i>
+                <span class="asterix">*</span>
+                <span class="cross">x</span>
+                <span class="verify"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <div class="alert alert-danger custom-alert">
+                    Subject can not be empty
+                </div>
+                </div>
+                
+                <div class="form-group">
+                <textarea class=" message form-control" name="message" placeholder="Your Message with human names"></textarea>
+                <i class="fa fa-comments message-icon"></i>
+                <span class="asterix">*</span>
+                <span class="cross">x</span>
+                <span class="verify"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <div class="alert alert-danger custom-alert">
+                    message should be more than <b>10</b> characteres
+                </div>
+                </div>
+
+                <div class="form-group">
+                <input type="submit" value="send" class="btn btn-success btn-block">
+                <i class="fa fa-paper-plane send-icon"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{{else}}
+
+    <div class="alert alert-danger centered_warnings" role="alert">
+        <strong>Welcome stranger</strong><br><br>
+        <strong>You'll need to login for that !</strong>
+    </div>
+
+{{/if}}
